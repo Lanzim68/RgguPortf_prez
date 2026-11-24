@@ -12,13 +12,8 @@ const slides = [
   { src: 'images/slide-7.svg', title: 'Материалы для проверки' },
 ];
 
-// =====================
-// ВСЁ ВНУТРИ DOMContentLoaded —
-// гарантия, что Bootstrap уже загружен
-// =====================
 document.addEventListener('DOMContentLoaded', () => {
 
-  // Проверка, что Bootstrap доступен
   if (typeof bootstrap === 'undefined') {
     console.error('Bootstrap не загружен. Проверьте подключение CDN.');
     return;
@@ -27,15 +22,15 @@ document.addEventListener('DOMContentLoaded', () => {
   // =====================
   // DOM
   // =====================
-  const carouselInner     = document.getElementById('carouselInner');
+  const carouselInner      = document.getElementById('carouselInner');
   const carouselIndicators = document.getElementById('carouselIndicators');
-  const slideCounter      = document.getElementById('slideCounter');
-  const slideTitle        = document.getElementById('slideTitle');
-  const carouselEl        = document.getElementById('slideCarousel');
+  const slideCounter       = document.getElementById('slideCounter');
+  const slideTitle         = document.getElementById('slideTitle');
+  const carouselEl         = document.getElementById('slideCarousel');
 
-  const openFullscreenBtn = document.getElementById('openFullscreenBtn');
-  const toggleAutoplayBtn = document.getElementById('toggleAutoplayBtn');
-  const autoplayLabel     = document.getElementById('autoplayLabel');
+  const openFullscreenBtn  = document.getElementById('openFullscreenBtn');
+  const toggleAutoplayBtn  = document.getElementById('toggleAutoplayBtn');
+  const autoplayLabel      = document.getElementById('autoplayLabel');
 
   const fsOverlay  = document.getElementById('fsOverlay');
   const fsImage    = document.getElementById('fsImage');
@@ -47,6 +42,17 @@ document.addEventListener('DOMContentLoaded', () => {
   let currentIndex = 0;
   let autoplayTimer = null;
   let autoplayOn = false;
+
+  // =====================
+  // ПРЕДЗАГРУЗКА ВСЕХ СЛАЙДОВ
+  // Это ключевое исправление: браузер закэширует
+  // все SVG до открытия полноэкранного режима,
+  // поэтому первый и последний слайды не будут пустыми
+  // =====================
+  slides.forEach((slide) => {
+    const img = new Image();
+    img.src = slide.src;
+  });
 
   // =====================
   // РЕНДЕР КАРУСЕЛИ
@@ -66,7 +72,6 @@ document.addEventListener('DOMContentLoaded', () => {
     carouselIndicators.appendChild(indicator);
   });
 
-  // Инициализация карусели ПОСЛЕ вставки слайдов
   const carousel = new bootstrap.Carousel(carouselEl, {
     interval: false,
     wrap: true,
@@ -75,7 +80,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // =====================
   // ДЕЛЕГИРОВАНИЕ КЛИКА ПО СЛАЙДУ
-  // (работает даже если изображение пересоздано)
   // =====================
   carouselInner.addEventListener('click', (e) => {
     const img = e.target.closest('img');
@@ -104,11 +108,11 @@ document.addEventListener('DOMContentLoaded', () => {
   // =====================
   function openFullscreen(index) {
     currentIndex = index;
-    renderFullscreen();
     fsOverlay.classList.add('is-open');
     fsOverlay.setAttribute('aria-hidden', 'false');
     document.body.style.overflow = 'hidden';
     stopAutoplay();
+    renderFullscreen();
   }
 
   function closeFullscreen() {
@@ -119,9 +123,22 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function renderFullscreen() {
     const slide = slides[currentIndex];
+
+    // Сбрасываем прозрачность, чтобы не было «вспышки» старой картинки
+    fsImage.classList.remove('is-loaded');
     fsImage.src = slide.src;
     fsImage.alt = slide.title;
     fsCounter.textContent = `${currentIndex + 1} / ${slides.length}`;
+
+    // Если картинка уже в кэше — показываем сразу
+    if (fsImage.complete && fsImage.naturalWidth > 0) {
+      fsImage.classList.add('is-loaded');
+    } else {
+      // Иначе ждём загрузки и показываем
+      fsImage.onload = () => {
+        fsImage.classList.add('is-loaded');
+      };
+    }
   }
 
   function fsNext() {
@@ -134,7 +151,6 @@ document.addEventListener('DOMContentLoaded', () => {
     renderFullscreen();
   }
 
-  // Кнопки оверлея
   fsCloseBtn.addEventListener('click', closeFullscreen);
   fsNextBtn.addEventListener('click', fsNext);
   fsPrevBtn.addEventListener('click', fsPrev);
@@ -143,7 +159,6 @@ document.addEventListener('DOMContentLoaded', () => {
     if (e.target === fsOverlay) closeFullscreen();
   });
 
-  // Клавиатура
   document.addEventListener('keydown', (e) => {
     const isOpen = fsOverlay.classList.contains('is-open');
     if (isOpen) {
@@ -156,7 +171,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // Свайпы в оверлее
   let touchStartX = 0;
   fsOverlay.addEventListener('touchstart', (e) => {
     touchStartX = e.changedTouches[0].screenX;
