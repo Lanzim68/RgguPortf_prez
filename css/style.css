@@ -1,126 +1,236 @@
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Кейс Яндекс Такси — презентация занятия</title>
+:root {
+  --brand-yellow: #FFCC00;
+  --brand-yellow-hover: #F5C400;
+  --brand-black: #1C1C1E;
+  --brand-dark-2: #2C2C2E;
+  --brand-page: #121214;
+  --brand-muted: #C7C7CC;
+  --brand-muted-2: #8E8E93;
+  --brand-white: #FFFFFF;
+}
 
-  <!-- Bootstrap 5 CSS -->
-  <link
-    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-    rel="stylesheet"
-    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
-    crossorigin="anonymous">
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
 
-  <!-- Наш CSS -->
-  <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
+body {
+  background-color: var(--brand-page);
+  color: var(--brand-white);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
 
-  <!-- ================= HEADER ================= -->
-  <header class="site-header">
-    <div class="container d-flex align-items-center justify-content-between">
-      <div class="d-flex align-items-center gap-2">
-        <span class="brand-dot"></span>
-        <span class="brand-title">Кейс Яндекс Такси</span>
-      </div>
-      <span class="brand-sub d-none d-sm-inline">презентация занятия · 5 минут</span>
-    </div>
-  </header>
+/* ================= HEADER ================= */
+.site-header {
+  border-bottom: 4px solid var(--brand-yellow);
+  padding: 14px 0;
+  background: var(--brand-black);
+}
+.brand-dot {
+  width: 14px; height: 14px; border-radius: 50%;
+  background: var(--brand-yellow); display: inline-block;
+}
+.brand-title { font-weight: 700; font-size: 16px; letter-spacing: 0.5px; }
+.brand-sub { font-size: 13px; color: var(--brand-muted-2); }
 
-  <!-- ================= HERO / КАРУСЕЛЬ ================= -->
-  <main class="site-main">
-    <section class="container py-4 py-md-5">
-      <div class="row g-4 align-items-center">
-        <div class="col-lg-5">
-          <p class="eyebrow">НАВЫК</p>
-          <h1 class="hero-title">
-            Решения на основе<br>
-            <span class="text-yellow">данных, а не мнений</span>
-          </h1>
-          <p class="hero-lead">
-            Учим студентов колледжа формулировать гипотезу, выбирать метрику
-            и проверять, не нарушает ли решение бриф заказчика.
-          </p>
+/* ================= MAIN ================= */
+.site-main { flex: 1; }
+.eyebrow {
+  color: var(--brand-yellow);
+  font-size: 12px; letter-spacing: 2px; font-weight: 700; margin-bottom: 8px;
+}
+.hero-title {
+  font-size: clamp(28px, 4vw, 48px);
+  font-weight: 800; line-height: 1.1; margin-bottom: 16px;
+}
+.text-yellow { color: var(--brand-yellow); }
+.hero-lead {
+  font-size: clamp(15px, 1.6vw, 18px);
+  color: var(--brand-muted); max-width: 520px;
+}
+.hint { font-size: 13px; color: var(--brand-muted-2); max-width: 520px; }
 
-          <div class="d-flex flex-wrap gap-2 mt-4">
-            <button class="btn btn-yellow" id="openFullscreenBtn">
-              Открыть на весь экран
-            </button>
-            <button class="btn btn-outline-light-soft" id="toggleAutoplayBtn">
-              Автопрокрутка: выкл
-            </button>
-          </div>
+/* ================= КНОПКИ СЛЕВА ================= */
+.action-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
 
-          <p class="hint mt-3">
-            Нажмите на слайд, чтобы открыть его на весь экран.
-            Листайте стрелками ← → или свайпом.
-          </p>
-        </div>
+.btn-yellow {
+  background: var(--brand-yellow);
+  color: var(--brand-black);
+  font-weight: 700;
+  border: none;
+  border-radius: 12px;
+  padding: 12px 20px;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+  box-shadow: 0 4px 12px rgba(255, 204, 0, 0.25);
+}
+.btn-yellow:hover { background: var(--brand-yellow-hover); color: var(--brand-black); }
+.btn-yellow:active { transform: scale(0.98); }
 
-        <div class="col-lg-7">
-          <!-- Bootstrap карусель -->
-          <div id="slideCarousel" class="carousel slide slide-carousel" data-bs-ride="false">
-            <div class="carousel-inner" id="carouselInner">
-              <!-- Слайды вставляет JS -->
-            </div>
+.btn-outline-light-soft {
+  border: 1.5px solid var(--brand-muted-2);
+  background: transparent;
+  color: var(--brand-white);
+  border-radius: 12px;
+  padding: 12px 20px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: border-color 0.2s ease, color 0.2s ease;
+}
+.btn-outline-light-soft:hover {
+  border-color: var(--brand-yellow);
+  color: var(--brand-yellow);
+}
 
-            <!-- Управление -->
-            <button class="carousel-control-prev" type="button"
-                    data-bs-target="#slideCarousel" data-bs-slide="prev"
-                    aria-label="Предыдущий слайд">
-              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            </button>
-            <button class="carousel-control-next" type="button"
-                    data-bs-target="#slideCarousel" data-bs-slide="next"
-                    aria-label="Следующий слайд">
-              <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            </button>
+/* ================= CAROUSEL ================= */
+.slide-carousel {
+  border-radius: 18px;
+  overflow: hidden;
+  background: var(--brand-black);
+  border: 1px solid #2C2C2E;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.45);
+}
 
-            <!-- Индикаторы -->
-            <div class="carousel-indicators" id="carouselIndicators"></div>
-          </div>
+.slide-carousel .carousel-item img {
+  width: 100%;
+  height: auto;
+  display: block;
+  cursor: zoom-in;
+}
 
-          <div class="d-flex justify-content-between align-items-center mt-2">
-            <span class="slide-counter" id="slideCounter">1 / 8</span>
-            <span class="slide-title" id="slideTitle">Титульный слайд</span>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
+/* Кастомные стрелки — видны на любом фоне */
+.slide-carousel .carousel-control-prev,
+.slide-carousel .carousel-control-next {
+  width: 56px;
+  opacity: 1;
+}
 
-  <!-- ================= FOOTER ================= -->
-  <footer class="site-footer">
-    <div class="container d-flex flex-wrap justify-content-between gap-2">
-      <span>© Кейс «Город N» · материалы занятия</span>
-      <span>Bootstrap 5 · GitHub Pages</span>
-    </div>
-  </footer>
+.slide-carousel .ctrl-circle {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--brand-yellow);
+  color: var(--brand-black);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
 
-  <!-- ================= FULLSCREEN OVERLAY ================= -->
-  <div class="fs-overlay" id="fsOverlay" aria-hidden="true">
-    <button class="fs-close" id="fsCloseBtn" aria-label="Закрыть полноэкранный просмотр">
-      ✕
-    </button>
+.slide-carousel .carousel-control-prev:hover .ctrl-circle,
+.slide-carousel .carousel-control-next:hover .ctrl-circle {
+  background: var(--brand-yellow-hover);
+  transform: scale(1.05);
+}
 
-    <button class="fs-nav fs-prev" id="fsPrevBtn" aria-label="Предыдущий слайд">‹</button>
-    <button class="fs-nav fs-next" id="fsNextBtn" aria-label="Следующий слайд">›</button>
+/* Индикаторы */
+.carousel-indicators {
+  bottom: 10px;
+}
+.carousel-indicators [data-bs-target] {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.4);
+  border: none;
+  opacity: 1;
+  transition: background-color 0.2s ease;
+}
+.carousel-indicators .active {
+  background-color: var(--brand-yellow);
+}
 
-    <div class="fs-stage">
-      <img id="fsImage" src="" alt="Слайд презентации">
-    </div>
+.slide-counter { font-size: 13px; color: var(--brand-yellow); font-weight: 700; }
+.slide-title { font-size: 13px; color: var(--brand-muted-2); }
 
-    <div class="fs-counter" id="fsCounter">1 / 8</div>
-  </div>
+/* ================= FOOTER ================= */
+.site-footer {
+  background: var(--brand-black);
+  border-top: 1px solid #2C2C2E;
+  padding: 16px 0;
+  font-size: 13px;
+  color: var(--brand-muted-2);
+}
 
-  <!-- Bootstrap JS (bundle) -->
-  <script
-    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-    crossorigin="anonymous"></script>
+/* ================= FULLSCREEN OVERLAY ================= */
+.fs-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  background: rgba(0, 0, 0, 0.96);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+.fs-overlay.is-open { display: flex; }
 
-  <!-- Наш JS -->
-  <script src="js/app.js"></script>
-</body>
-</html>
+.fs-stage {
+  max-width: 100%;
+  max-height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.fs-stage img {
+  max-width: 100%;
+  max-height: 90vh;
+  width: auto;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.6);
+  background: var(--brand-black);
+}
+
+.fs-close {
+  position: absolute;
+  top: 16px; right: 16px;
+  width: 44px; height: 44px;
+  border-radius: 50%; border: none;
+  background: var(--brand-yellow); color: var(--brand-black);
+  font-size: 18px; font-weight: 700;
+  cursor: pointer; z-index: 2;
+}
+
+.fs-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 52px; height: 52px;
+  border-radius: 50%; border: none;
+  background: rgba(255, 204, 0, 0.9);
+  color: var(--brand-black);
+  font-size: 28px; font-weight: 700;
+  cursor: pointer; z-index: 2;
+}
+.fs-prev { left: 16px; }
+.fs-next { right: 16px; }
+
+.fs-counter {
+  position: absolute;
+  bottom: 16px; left: 50%;
+  transform: translateX(-50%);
+  background: rgba(28, 28, 30, 0.85);
+  color: var(--brand-yellow);
+  font-size: 14px; font-weight: 700;
+  padding: 6px 14px; border-radius: 20px;
+}
+
+@media (max-width: 576px) {
+  .fs-nav { width: 44px; height: 44px; font-size: 24px; }
+  .fs-close { width: 40px; height: 40px; }
+  .fs-stage img { max-height: 82vh; }
+  .slide-carousel .carousel-control-prev,
+  .slide-carousel .carousel-control-next { width: 44px; }
+  .slide-carousel .ctrl-circle { width: 36px; height: 36px; }
+  .action-buttons { flex-direction: column; }
+  .btn-yellow, .btn-outline-light-soft { width: 100%; justify-content: center; }
+}
