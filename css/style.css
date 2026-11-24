@@ -1,165 +1,3 @@
-:root {
-  --brand-yellow: #FFCC00;
-  --brand-yellow-hover: #F5C400;
-  --brand-black: #1C1C1E;
-  --brand-dark-2: #2C2C2E;
-  --brand-page: #121214;
-  --brand-muted: #C7C7CC;
-  --brand-muted-2: #8E8E93;
-  --brand-white: #FFFFFF;
-}
-
-* { box-sizing: border-box; }
-html, body { margin: 0; padding: 0; }
-
-body {
-  background-color: var(--brand-page);
-  color: var(--brand-white);
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
-
-/* ================= HEADER ================= */
-.site-header {
-  border-bottom: 4px solid var(--brand-yellow);
-  padding: 14px 0;
-  background: var(--brand-black);
-}
-.brand-dot {
-  width: 14px; height: 14px; border-radius: 50%;
-  background: var(--brand-yellow); display: inline-block;
-}
-.brand-title { font-weight: 700; font-size: 16px; letter-spacing: 0.5px; }
-.brand-sub { font-size: 13px; color: var(--brand-muted-2); }
-
-/* ================= MAIN ================= */
-.site-main { flex: 1; }
-.eyebrow {
-  color: var(--brand-yellow);
-  font-size: 12px; letter-spacing: 2px; font-weight: 700; margin-bottom: 8px;
-}
-.hero-title {
-  font-size: clamp(28px, 4vw, 48px);
-  font-weight: 800; line-height: 1.1; margin-bottom: 16px;
-}
-.text-yellow { color: var(--brand-yellow); }
-.hero-lead {
-  font-size: clamp(15px, 1.6vw, 18px);
-  color: var(--brand-muted); max-width: 520px;
-}
-.hint { font-size: 13px; color: var(--brand-muted-2); max-width: 520px; }
-
-/* ================= КНОПКИ СЛЕВА ================= */
-.action-buttons {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-}
-
-.btn-yellow {
-  background: var(--brand-yellow);
-  color: var(--brand-black);
-  font-weight: 700;
-  border: none;
-  border-radius: 12px;
-  padding: 12px 20px;
-  font-size: 15px;
-  cursor: pointer;
-  transition: background-color 0.2s ease, transform 0.1s ease;
-  box-shadow: 0 4px 12px rgba(255, 204, 0, 0.25);
-}
-.btn-yellow:hover { background: var(--brand-yellow-hover); color: var(--brand-black); }
-.btn-yellow:active { transform: scale(0.98); }
-
-.btn-outline-light-soft {
-  border: 1.5px solid var(--brand-muted-2);
-  background: transparent;
-  color: var(--brand-white);
-  border-radius: 12px;
-  padding: 12px 20px;
-  font-size: 15px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: border-color 0.2s ease, color 0.2s ease;
-}
-.btn-outline-light-soft:hover {
-  border-color: var(--brand-yellow);
-  color: var(--brand-yellow);
-}
-
-/* ================= CAROUSEL ================= */
-.slide-carousel {
-  border-radius: 18px;
-  overflow: hidden;
-  background: var(--brand-black);
-  border: 1px solid #2C2C2E;
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.45);
-}
-
-.slide-carousel .carousel-item img {
-  width: 100%;
-  height: auto;
-  display: block;
-  cursor: zoom-in;
-}
-
-/* Кастомные стрелки — видны на любом фоне */
-.slide-carousel .carousel-control-prev,
-.slide-carousel .carousel-control-next {
-  width: 56px;
-  opacity: 1;
-}
-
-.slide-carousel .ctrl-circle {
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-  background: var(--brand-yellow);
-  color: var(--brand-black);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
-  transition: background-color 0.2s ease, transform 0.1s ease;
-}
-
-.slide-carousel .carousel-control-prev:hover .ctrl-circle,
-.slide-carousel .carousel-control-next:hover .ctrl-circle {
-  background: var(--brand-yellow-hover);
-  transform: scale(1.05);
-}
-
-/* Индикаторы */
-.carousel-indicators {
-  bottom: 10px;
-}
-.carousel-indicators [data-bs-target] {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background-color: rgba(255, 255, 255, 0.4);
-  border: none;
-  opacity: 1;
-  transition: background-color 0.2s ease;
-}
-.carousel-indicators .active {
-  background-color: var(--brand-yellow);
-}
-
-.slide-counter { font-size: 13px; color: var(--brand-yellow); font-weight: 700; }
-.slide-title { font-size: 13px; color: var(--brand-muted-2); }
-
-/* ================= FOOTER ================= */
-.site-footer {
-  background: var(--brand-black);
-  border-top: 1px solid #2C2C2E;
-  padding: 16px 0;
-  font-size: 13px;
-  color: var(--brand-muted-2);
-}
-
 /* ================= FULLSCREEN OVERLAY ================= */
 .fs-overlay {
   position: fixed;
@@ -173,13 +11,21 @@ body {
 }
 .fs-overlay.is-open { display: flex; }
 
+/* КЛЮЧЕВОЕ ИСПРАВЛЕНИЕ:
+   фиксированная минимальная высота, чтобы контейнер
+   не схлопывался в 0, пока картинка не загрузилась */
 .fs-stage {
+  width: 100%;
+  height: 100%;
   max-width: 100%;
   max-height: 100%;
+  min-height: 60vh;          /* не даёт «тёмному экрану» появиться */
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
 }
+
 .fs-stage img {
   max-width: 100%;
   max-height: 90vh;
@@ -188,49 +34,11 @@ body {
   border-radius: 12px;
   box-shadow: 0 16px 48px rgba(0, 0, 0, 0.6);
   background: var(--brand-black);
+  opacity: 0;
+  transition: opacity 0.2s ease;
 }
 
-.fs-close {
-  position: absolute;
-  top: 16px; right: 16px;
-  width: 44px; height: 44px;
-  border-radius: 50%; border: none;
-  background: var(--brand-yellow); color: var(--brand-black);
-  font-size: 18px; font-weight: 700;
-  cursor: pointer; z-index: 2;
-}
-
-.fs-nav {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 52px; height: 52px;
-  border-radius: 50%; border: none;
-  background: rgba(255, 204, 0, 0.9);
-  color: var(--brand-black);
-  font-size: 28px; font-weight: 700;
-  cursor: pointer; z-index: 2;
-}
-.fs-prev { left: 16px; }
-.fs-next { right: 16px; }
-
-.fs-counter {
-  position: absolute;
-  bottom: 16px; left: 50%;
-  transform: translateX(-50%);
-  background: rgba(28, 28, 30, 0.85);
-  color: var(--brand-yellow);
-  font-size: 14px; font-weight: 700;
-  padding: 6px 14px; border-radius: 20px;
-}
-
-@media (max-width: 576px) {
-  .fs-nav { width: 44px; height: 44px; font-size: 24px; }
-  .fs-close { width: 40px; height: 40px; }
-  .fs-stage img { max-height: 82vh; }
-  .slide-carousel .carousel-control-prev,
-  .slide-carousel .carousel-control-next { width: 44px; }
-  .slide-carousel .ctrl-circle { width: 36px; height: 36px; }
-  .action-buttons { flex-direction: column; }
-  .btn-yellow, .btn-outline-light-soft { width: 100%; justify-content: center; }
+/* Плавное появление после загрузки */
+.fs-stage img.is-loaded {
+  opacity: 1;
 }
