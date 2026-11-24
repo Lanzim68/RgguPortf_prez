@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720">
+  <rect width="1280" height="720" fill="#F2F2F7"/>
+  <rect x="0" y="0" width="1280" height="12" fill="#FFCC00"/>
+  <rect x="0" y="708" width="1280" height="12" fill="#1C1C1E"/>
+
+  <text x="80" y="100" font-family="Arial" font-size="40" font-weight="bold" fill="#1C1C1E">Фрагмент занятия</text>
+  <text x="80" y="140" font-family="Arial" font-size="20" fill="#3A3A3C">Группы по 3–4 человека · 10 минут · защита гипотезы перед другой группой</text>
+
+  <!-- Левая карточка: сценарий А -->
+  <rect x="80" y="190" width="360" height="400" rx="24" fill="#FFFFFF"/>
+  <rect x="80" y="190" width="360" height="10" rx="5" fill="#FFCC00"/>
+  <text x="110" y="245" font-family="Arial" font-size="16" fill="#8E8E93" letter-spacing="2">КАРТОЧКА A</text>
+  <text x="110" y="300" font-family="Arial" font-size="28" font-weight="bold" fill="#1C1C1E">«Спешите?»</text>
+  <text x="110" y="350" font-family="Arial" font-size="16" fill="#3A3A3C">Сценарий: страх</text>
+  <text x="110" y="375" font-family="Arial" font-size="16" fill="#3A3A3C">непредвиденных трат</text>
+  <text x="110" y="425" font-family="Arial" font-size="16" fill="#3A3A3C">Сообщение:</text>
+  <text x="110" y="450" font-family="Arial" font-size="16" fill="#3A3A3C">«Цена видна до</text>
+  <text x="110" y="475" font-family="Arial" font-size="16" fill="#3A3A3C">нажатия кнопки»</text>
+
+  <!-- Центральная карточка: шаблон гипотезы -->
+  <rect x="460" y="190" width="360" height="400" rx="24" fill="#1C1C1E"/>
+  <text x="490" y="245" font-family="Arial" font-size="16" fill="#FFCC00" letter-spacing="2">ШАБЛОН ГИПОТЕЗЫ</text>
+  <text x="490" y="300" font-family="Arial" font-size="18" fill="#FFFFFF">Если мы покажем</text>
+  <text x="490" y="325" font-family="Arial" font-size="18" fill="#FFFFFF">цену до нажатия</text>
+  <text x="490" y="350" font-family="Arial" font-size="18" fill="#FFFFFF">кнопки в ситуации</text>
+  <text x="490" y="375" font-family="Arial" font-size="18" fill="#FFFFFF">спешки,</text>
+  <text x="490" y="420" font-family="Arial" font-size="18" fill="#FFCC00">то пользователь</text>
+  <text x="490" y="445" font-family="Arial" font-size="18" fill="#FFCC00">вернётся,</text>
+  <text x="490" y="490" font-family="Arial" font-size="18" fill="#FFFFFF">потому что перестанет</text>
+  <text x="490" y="515" font-family="Arial" font-size="18" fill="#FFFFFF">бояться непредвиденных</text>
+  <text x="490" y="540" font-family="Arial" font-size="18" fill="#FFFFFF">трат</text>
+
+  <!-- Правая карточка: вопрос преподавателя -->
+  <rect x="840" y="190" width="360" height="400" rx="24" fill="#FFFFFF"/>
+  <rect x="840" y="190" width="360" height="10" rx="5" fill="#FC3F1D"/>
+  <text x="870" y="245" font-family="Arial" font-size="16" fill="#8E8E93" letter-spacing="2">ВОПРОС ПРЕПОДАВАТЕЛЯ</text>
+  <text x="870" y="300" font-family="Arial" font-size="24" font-weight="bold" fill="#1C1C1E">«Какую метрику</text>
+  <text x="870" y="330" font-family="Arial" font-size="24" font-weight="bold" fill="#1C1C1E">вы будете</text>
+  <text x="870" y="360" font-family="Arial" font-size="24" font-weight="bold" fill="#1C1C1E">смотреть?»</text>
+  <text x="870" y="420" font-family="Arial" font-size="16" fill="#3A3A3C">Группа сама выходит</text>
+  <text x="870" y="445" font-family="Arial" font-size="16" fill="#3A3A3C">на CTR и Retention Rate</text>
+
+  <rect x="80" y="620" width="1120" height="50" rx="16" fill="#FFCC00"/>
+  <text x="120" y="652" font-family="Arial" font-size="18" font-weight="bold" fill="#1C1C1E">В конце — голосование за гипотезу, которая лучше проверяема, а не красивее звучит</text>
+</svg>

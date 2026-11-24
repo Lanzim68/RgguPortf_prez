@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720">
+  <rect width="1280" height="720" fill="#FFFFFF"/>
+  <rect x="0" y="0" width="1280" height="12" fill="#FFCC00"/>
+  <rect x="0" y="708" width="1280" height="12" fill="#1C1C1E"/>
+
+  <text x="80" y="100" font-family="Arial" font-size="40" font-weight="bold" fill="#1C1C1E">Проверка результата и обратная связь</text>
+  <text x="80" y="140" font-family="Arial" font-size="20" fill="#3A3A3C">Оцениваем не креативность, а проверяемость и корректность</text>
+
+  <!-- Три критерия -->
+  <g font-family="Arial">
+    <rect x="80" y="190" width="360" height="200" rx="20" fill="#F2F2F7"/>
+    <text x="110" y="240" font-size="16" fill="#8E8E93" letter-spacing="2">КРИТЕРИЙ 1</text>
+    <text x="110" y="285" font-size="22" font-weight="bold" fill="#1C1C1E">Гипотеза</text>
+    <text x="110" y="315" font-size="22" font-weight="bold" fill="#1C1C1E">проверяема</text>
+    <text x="110" y="355" font-size="15" fill="#3A3A3C">Есть метрика и</text>
+    <text x="110" y="378" font-size="15" fill="#3A3A3C">критерий успеха</text>
+
+    <rect x="460" y="190" width="360" height="200" rx="20" fill="#F2F2F7"/>
+    <text x="490" y="240" font-size="16" fill="#8E8E93" letter-spacing="2">КРИТЕРИЙ 2</text>
+    <text x="490" y="285" font-size="22" font-weight="bold" fill="#1C1C1E">Запреты брифа</text>
+    <text x="490" y="315" font-size="22" font-weight="bold" fill="#1C1C1E">не нарушены</text>
+    <text x="490" y="355" font-size="15" fill="#3A3A3C">Студент явно</text>
+    <text x="490" y="378" font-size="15" fill="#3A3A3C">указывает, чего не обещает</text>
+
+    <rect x="840" y="190" width="360" height="200" rx="20" fill="#F2F2F7"/>
+    <text x="870" y="240" font-size="16" fill="#8E8E93" letter-spacing="2">КРИТЕРИЙ 3</text>
+    <text x="870" y="285" font-size="22" font-weight="bold" fill="#1C1C1E">Выбор обоснован</text>
+    <text x="870" y="315" font-size="22" font-weight="bold" fill="#1C1C1E">данными</text>
+    <text x="870" y="355" font-size="15" fill="#3A3A3C">Ссылка на метрику,</text>
+    <text x="870" y="378" font-size="15" fill="#3A3A3C">а не «мне кажется»</text>
+  </g>
+
+  <!-- Блок обратной связи -->
+  <rect x="80" y="430" width="1120" height="230" rx="24" fill="#1C1C1E"/>
+  <text x="120" y="485" font-family="Arial" font-size="18" fill="#FFCC00" letter-spacing="2">ФОРМУЛА ОБРАТНОЙ СВЯЗИ</text>
+  <text x="120" y="530" font-family="Arial" font-size="24" font-weight="bold" fill="#FFFFFF">Что получилось → Что проверить → Как улучшить</text>
+  <text x="120" y="585" font-family="Arial" font-size="17" fill="#C7C7CC">Пример: «Гипотеза сформулирована чётко, метрика выбрана верно. Но вы не указали,</text>
+  <text x="120" y="612" font-family="Arial" font-size="17" fill="#C7C7CC">как отличите эффект от сезонности — подумайте, какая контрольная группа это покажет»</text>
+</svg>

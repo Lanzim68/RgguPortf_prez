@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720">
+  <rect width="1280" height="720" fill="#FFFFFF"/>
+  <rect x="0" y="0" width="1280" height="12" fill="#FFCC00"/>
+  <rect x="0" y="708" width="1280" height="12" fill="#1C1C1E"/>
+
+  <text x="80" y="100" font-family="Arial" font-size="40" font-weight="bold" fill="#1C1C1E">Адаптация под нашу группу</text>
+  <text x="80" y="140" font-family="Arial" font-size="20" fill="#3A3A3C">Что изменили в кейсе под учащихся колледжа</text>
+
+  <!-- Три блока: убрали / заменили / добавили -->
+  <g font-family="Arial">
+    <!-- Убрали -->
+    <rect x="80" y="190" width="360" height="380" rx="24" fill="#F2F2F7"/>
+    <rect x="80" y="190" width="360" height="10" rx="5" fill="#FC3F1D"/>
+    <text x="110" y="245" font-size="16" fill="#8E8E93" letter-spacing="2">УБРАЛИ</text>
+    <text x="110" y="295" font-size="24" font-weight="bold" fill="#1C1C1E">Финансовые</text>
+    <text x="110" y="325" font-size="24" font-weight="bold" fill="#1C1C1E">расчёты</text>
+    <text x="110" y="375" font-size="16" fill="#3A3A3C">CAC и ROMI не нужны:</text>
+    <text x="110" y="400" font-size="16" fill="#3A3A3C">метрики даём готовыми</text>
+    <text x="110" y="425" font-size="16" fill="#3A3A3C">в таблице PESO</text>
+
+    <!-- Заменили -->
+    <rect x="460" y="190" width="360" height="380" rx="24" fill="#F2F2F7"/>
+    <rect x="460" y="190" width="360" height="10" rx="5" fill="#FFCC00"/>
+    <text x="490" y="245" font-size="16" fill="#8E8E93" letter-spacing="2">ЗАМЕНИЛИ</text>
+    <text x="490" y="295" font-size="24" font-weight="bold" fill="#1C1C1E">Свободный креатив</text>
+    <text x="490" y="325" font-size="24" font-weight="bold" fill="#1C1C1E">на выбор</text>
+    <text x="490" y="375" font-size="16" fill="#3A3A3C">Не «нарисуй баннер»,</text>
+    <text x="490" y="400" font-size="16" fill="#3A3A3C">а «выбери сценарий</text>
+    <text x="490" y="425" font-size="16" fill="#3A3A3C">и обоснуй»</text>
+
+    <!-- Добавили -->
+    <rect x="840" y="190" width="360" height="380" rx="24" fill="#F2F2F7"/>
+    <rect x="840" y="190" width="360" height="10" rx="5" fill="#1C1C1E"/>
+    <text x="870" y="245" font-size="16" fill="#8E8E93" letter-spacing="2">ДОБАВИЛИ</text>
+    <text x="870" y="295" font-size="24" font-weight="bold" fill="#1C1C1E">Памятку</text>
+    <text x="870" y="325" font-size="24" font-weight="bold" fill="#1C1C1E">запретов</text>
+    <text x="870" y="375" font-size="16" fill="#3A3A3C">Главная ошибка новичка —</text>
+    <text x="870" y="400" font-size="16" fill="#3A3A3C">нарушение ограничений,</text>
+    <text x="870" y="425" font-size="16" fill="#3A3A3C">а не слабая идея</text>
+  </g>
+
+  <rect x="80" y="610" width="1120" height="60" rx="16" fill="#1C1C1E"/>
+  <text x="120" y="648" font-family="Arial" font-size="18" fill="#FFFFFF">Итог: кейс стал посильным для группы, но сохранил профессиональную логику</text>
+</svg>
